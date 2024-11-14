@@ -11,7 +11,7 @@ public class DirectionParserTest extends TestCase {
     @DisplayName("Direction parser returns null if there is no direction in the input")
     public void test_DirectionParserNoDirectionInput(){
         //Arrange
-        DirectionParser directionParser = new DirectionParser("4 2");
+        DirectionParser directionParser = new DirectionParser("");
         //Act
         Direction result = directionParser.parseDirection();
         Direction expected = null;
