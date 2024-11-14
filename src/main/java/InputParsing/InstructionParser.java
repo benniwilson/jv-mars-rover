@@ -14,14 +14,14 @@ public class InstructionParser {
 
     public List<Instruction> parseInstruction(){
         List<Instruction> instructionList = new ArrayList<>();
-        String directionInputValidLetters = instructionInput.replaceAll("[^rlmRLM]","").toUpperCase();
-        if (directionInputValidLetters.isEmpty()){
+        String instructionInputValidLetters = instructionInput.replaceAll("[^rlmRLM]","").toUpperCase();
+        if (instructionInputValidLetters.isEmpty()){
             return new ArrayList<>();
         }else {
-            for (int i = 0; i < directionInputValidLetters.length(); i++){
-                if(directionInputValidLetters.charAt(i) == 'R'){
+            for (int i = 0; i < instructionInputValidLetters.length(); i++){
+                if(instructionInputValidLetters.charAt(i) == 'R'){
                     instructionList.add(Instruction.R);
-                }else if(directionInputValidLetters.charAt(i) == 'L') {
+                }else if(instructionInputValidLetters.charAt(i) == 'L') {
                     instructionList.add(Instruction.L);
                 }else{
                     instructionList.add(Instruction.M);
