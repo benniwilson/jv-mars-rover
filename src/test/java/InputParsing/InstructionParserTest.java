@@ -71,4 +71,17 @@ public class InstructionParserTest extends TestCase {
         //Assert
         assertEquals(expected, result);
     }
+
+    @Test
+    @DisplayName("Instruction parser returns the correct list with spaces in the string")
+    public void test_InstructionParserSpacedInput(){
+        //Arrange
+        InstructionParser instructionParser = new InstructionParser("  M R H m r     L");
+        //Act
+        List<Instruction> result = instructionParser.parseInstruction();
+        List<Instruction> expected = List.of(Instruction.M,Instruction.R,Instruction.M,Instruction.R,
+                Instruction.L);
+        //Assert
+        assertEquals(expected, result);
+    }
 }

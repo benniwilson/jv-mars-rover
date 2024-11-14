@@ -85,6 +85,26 @@ public class DirectionParserTest extends TestCase {
     }
 
     @Test
+    @DisplayName("Direction parser returns the correct direction, with input containing more whitespace")
+    public void test_DirectionParserSpacedInput(){
+        //Arrange
+        DirectionParser directionParser = new DirectionParser("4 6       N");
+        DirectionParser directionParser2 = new DirectionParser("   10 134      MINw");
+        DirectionParser directionParser3 = new DirectionParser("0 0 hff      p ee");
+        //Act
+        Direction result = directionParser.parseDirection();
+        Direction expected = Direction.N;
+        Direction result2 = directionParser2.parseDirection();
+        Direction expected2 = Direction.N;
+        Direction result3 = directionParser3.parseDirection();
+        Direction expected3 = Direction.E;
+        //Assert
+        assertEquals(expected, result);
+        assertEquals(expected2, result2);
+        assertEquals(expected3, result3);
+    }
+
+    @Test
     @DisplayName("Direction parser returns the first direction if there are multiple directions in" +
             "the direction input")
     public void test_DirectionParserMultipleDirectionsInput(){
