@@ -1,18 +1,13 @@
 package InputParsing;
 
-import Main.Instruction;
+import Logic.Instruction;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class InstructionParser {
-    private String instructionInput;
 
-    public InstructionParser(String instructionInput) {
-        this.instructionInput = instructionInput;
-    }
-
-    public List<Instruction> parseInstruction(){
+    public List<Instruction> parseInstruction(String instructionInput){
         List<Instruction> instructionList = new ArrayList<>();
         String instructionInputValidLetters = instructionInput.replaceAll("[^rlmRLM]","").toUpperCase();
         if (instructionInputValidLetters.isEmpty()){
