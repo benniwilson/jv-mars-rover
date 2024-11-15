@@ -11,7 +11,7 @@ public class InstructionParser {
         List<Instruction> instructionList = new ArrayList<>();
         String instructionInputValidLetters = instructionInput.replaceAll("[^rlmRLM]","").toUpperCase();
         if (instructionInputValidLetters.isEmpty()){
-            return new ArrayList<>();
+            return null;
         }else {
             for (int i = 0; i < instructionInputValidLetters.length(); i++){
                 if(instructionInputValidLetters.charAt(i) == 'R'){

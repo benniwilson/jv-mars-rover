@@ -1,4 +1,4 @@
-package Main;
+package Logic;
 
 public enum Instruction {
     L,
