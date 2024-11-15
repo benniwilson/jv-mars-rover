@@ -1,10 +1,13 @@
-package Main;
-
-import java.util.List;
+package Logic;
 
 public class Rover {
+    Position position;
 
-    public void getDirection(Position position, Instruction instruction){
+    public Rover(Position position) {
+        this.position = position;
+    }
+
+    public void getDirection(Instruction instruction){
         int value = 0;
         if (position == null || instruction == null){
             System.out.println("Current position is unknown...");
@@ -21,7 +24,7 @@ public class Rover {
         }
     }
 
-    public void moveXPosition(Position position, Instruction instruction){
+    public void moveXPosition(Instruction instruction){
         if (position == null){
             System.out.println("Current position is unknown...");
         }else if (instruction == null || instruction != Instruction.M) {
@@ -33,7 +36,7 @@ public class Rover {
         }
     }
 
-    public void moveYPosition(Position position, Instruction instruction){
+    public void moveYPosition(Instruction instruction){
         if (position == null){
             System.out.println("Current position is unknown...");
         }else if (instruction == null || instruction != Instruction.M){
