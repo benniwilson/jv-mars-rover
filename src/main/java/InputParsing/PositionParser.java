@@ -1,28 +1,20 @@
 package InputParsing;
 
-import Main.Direction;
-
-import java.util.Arrays;
-import java.util.Objects;
+import Logic.Direction;
 
 public class PositionParser {
-    private String positionInput;
 
-    public PositionParser(String positionInput) {
-        this.positionInput = positionInput;
-    }
-
-    public String[] splitNumbers(){
+    public String[] splitNumbers(String positionInput){
         String positionInputNumbers = positionInput.replaceAll("[^0-9 ]","");
         positionInputNumbers = positionInputNumbers.replaceAll("\\s+"," ");
         return positionInputNumbers.split(" ");
     }
 
-    public int parseXCoordinate(){
+    public int parseXCoordinate(String positionInput){
         if (positionInput.isEmpty()){
             return 0;
         }
-        String[] positionInputArray = splitNumbers();
+        String[] positionInputArray = splitNumbers(positionInput);
         if (positionInputArray[0].isEmpty()){
             return Integer.parseInt(positionInputArray[1]);
         }else{
@@ -30,11 +22,11 @@ public class PositionParser {
         }
     }
 
-    public int parseYCoordinate(){
+    public int parseYCoordinate(String positionInput){
         if(positionInput.isEmpty()){
             return 0;
         }
-        String[] positionInputArray = splitNumbers();
+        String[] positionInputArray = splitNumbers(positionInput);
         if(positionInputArray[0].isEmpty()){
             return Integer.parseInt(positionInputArray[2]);
         }else{
@@ -42,7 +34,7 @@ public class PositionParser {
         }
     }
 
-    public Direction parseDirection(){
+    public Direction parseDirection(String positionInput){
         DirectionParser directionParser = new DirectionParser(positionInput);
         return directionParser.parseDirection();
     }
