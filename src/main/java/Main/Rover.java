@@ -3,7 +3,6 @@ package Main;
 import java.util.List;
 
 public class Rover {
-    private List<Instruction> instructions;
 
     public void getDirection(Position position, Instruction instruction){
         int value = 0;
@@ -21,6 +20,7 @@ public class Rover {
             position.setFacing(position.getFacing().values()[value-1]);
         }
     }
+
     public void moveXPosition(Position position, Instruction instruction){
         if (position == null){
             System.out.println("Current position is unknown...");
