@@ -35,7 +35,7 @@ public class PositionParser {
     }
 
     public Direction parseDirection(String positionInput){
-        DirectionParser directionParser = new DirectionParser(positionInput);
-        return directionParser.parseDirection();
+        DirectionParser directionParser = new DirectionParser();
+        return directionParser.parseDirection(positionInput);
     }
 }

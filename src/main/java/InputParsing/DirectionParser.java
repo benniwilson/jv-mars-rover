@@ -1,14 +1,10 @@
 package InputParsing;
-import Main.Direction;
+import Logic.Direction;
 
 public class DirectionParser {
-    private String directionInput;
 
-    public DirectionParser(String directionInput) {
-        this.directionInput = directionInput;
-    }
 
-    public Direction parseDirection(){
+    public Direction parseDirection(String directionInput){
         //directionInput consists of numbers and letters,
         //we only care about letters for direction so get rid of the
         //numbers. Then see if the directionInput size is 0,1 or more than 1
