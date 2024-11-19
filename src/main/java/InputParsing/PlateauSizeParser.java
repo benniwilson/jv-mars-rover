@@ -12,7 +12,7 @@ public class PlateauSizeParser {
     public int[][] parsePlateauSize(){
         String plateauSizeValid = plateauSizeInput.replaceAll("[^0-9 ]","");
         String plateauSizeValidSingleSpace = plateauSizeValid.replaceAll("\\s+", " ");
-        if (plateauSizeValidSingleSpace.equals(" ")){
+        if (plateauSizeValidSingleSpace.equals(" ") || plateauSizeValidSingleSpace.isEmpty()){
             return new int[0][0];
         }else if (plateauSizeValidSingleSpace.startsWith(" ")){
             plateauSizeValidSingleSpace = plateauSizeValidSingleSpace.substring(1);
@@ -21,7 +21,7 @@ public class PlateauSizeParser {
         if (plateauSizeValidSplit.length == 1){
             return new int[0][0];
         }else{
-            return new int[Integer.parseInt(plateauSizeValidSplit[0])][Integer.parseInt(plateauSizeValidSplit[1])];
+            return new int[Integer.parseInt(plateauSizeValidSplit[0])+1][Integer.parseInt(plateauSizeValidSplit[1])+1];
         }
     }
 }

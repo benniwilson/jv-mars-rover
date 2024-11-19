@@ -17,9 +17,8 @@ public class InstructionParserTest extends TestCase {
         InstructionParser instructionParser = new InstructionParser();
         //Act
         List<Instruction> result = instructionParser.parseInstruction("");
-        List<Instruction> expected = new ArrayList<>();
         //Assert
-        assertEquals(expected, result);
+        assertNull(result);
     }
 
     @Test
@@ -29,9 +28,8 @@ public class InstructionParserTest extends TestCase {
         InstructionParser instructionParser = new InstructionParser();
         //Act
         List<Instruction> result = instructionParser.parseInstruction("PPP");
-        List<Instruction> expected = new ArrayList<>();
         //Assert
-        assertEquals(expected, result);
+        assertNull(result);
     }
 
     @Test

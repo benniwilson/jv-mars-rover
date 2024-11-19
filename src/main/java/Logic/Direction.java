@@ -1,4 +1,4 @@
-package Main;
+package Logic;
 
 public enum Direction {
     N,

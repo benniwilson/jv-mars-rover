@@ -12,7 +12,7 @@ public class PositionParser {
 
     public int parseXCoordinate(String positionInput){
         if (positionInput.isEmpty()){
-            return 0;
+            return -1;
         }
         String[] positionInputArray = splitNumbers(positionInput);
         if (positionInputArray[0].isEmpty()){
@@ -24,7 +24,7 @@ public class PositionParser {
 
     public int parseYCoordinate(String positionInput){
         if(positionInput.isEmpty()){
-            return 0;
+            return -1;
         }
         String[] positionInputArray = splitNumbers(positionInput);
         if(positionInputArray[0].isEmpty()){
