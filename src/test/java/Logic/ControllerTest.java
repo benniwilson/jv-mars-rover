@@ -44,7 +44,7 @@ public class ControllerTest extends TestCase {
     public void test_controllerMovementWrongInvalidInitialPositionString(){
         //Arrange
         Controller controller = new Controller();
-        List<String> list = List.of("5", "1 2", "MMLLRMLM");
+        List<String> list = List.of("5 5", "1 2", "MMLLRMLM");
         //Assert
         assertFalse(controller.movement(list));
     }
@@ -54,7 +54,7 @@ public class ControllerTest extends TestCase {
     public void test_controllerMovementWrongInvalidInstructionString(){
         //Arrange
         Controller controller = new Controller();
-        List<String> list = List.of("5", "1 2 S", "loloooa");
+        List<String> list = List.of("5 5", "1 2 S", "AWEFGHIF");
         //Assert
         assertFalse(controller.movement(list));
     }

@@ -7,13 +7,15 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Controller {
-    Input input = new Input();
     PlateauSize plateauSize;
     List<Rover> rovers = new ArrayList<>();
+    int numOfRovers;
 
 
-    public boolean movement(List<String> stringInput){
-        if(!input.inputValidator(stringInput)){
+   public boolean movement(List<String> stringList){
+       Input input = new Input(stringList);
+       boolean inputValidation = input.inputValidator();
+        if(!inputValidation){
             return false;
         }
         //Naming all variables needed for the program.
@@ -22,10 +24,9 @@ public class Controller {
         int y;
         Direction facing;
         Position position;
+        numOfRovers = (stringList.size()-1)/2;
 
-
-
-        for (int i = 0; i < input.getNumberOfRovers(); i++){
+        for (int i = 0; i < numOfRovers; i++){
             x = input.getPositionParser().parseXCoordinate(input.getPositionParserStrings().get(i));
             y = input.getPositionParser().parseYCoordinate(input.getPositionParserStrings().get(i));
             facing = input.getPositionParser().parseDirection(input.getPositionParserStrings().get(i));

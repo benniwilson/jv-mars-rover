@@ -50,10 +50,19 @@ public class Input {
         if (input.size() < 3 || input.size() % 2 == 0){
             return false;
         }
-        plateauSizeInputValidator();
-        positionParserInputValidator();
-        instructionParserInputValidator();
-        return plateauSizeInputValidator() || positionParserInputValidator() || instructionParserInputValidator();
+        boolean isPlateauSizeValid = plateauSizeInputValidator();
+        if (!isPlateauSizeValid){
+            return false;
+        }
+        boolean isPositionValid = positionParserInputValidator();
+        if (!isPositionValid){
+            return false;
+        }
+        boolean isInstructionValid = instructionParserInputValidator();
+        if (!isInstructionValid){
+            return false;
+        }
+        return true;
     }
 
     public boolean plateauSizeInputValidator(){

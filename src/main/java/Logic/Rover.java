@@ -9,9 +9,9 @@ public class Rover {
 
     public void getDirection(Instruction instruction){
         int value = 0;
-        if (position == null || instruction == null){
+        if (instruction == null || position == null){
             System.out.println("Current position is unknown...");
-        }else if(instruction == Instruction.R && position.getFacing() == Direction.W){
+        }else if (instruction == Instruction.R && position.getFacing() == Direction.W){
             position.setFacing(Direction.N);
         }else if(instruction == Instruction.R){
             value = position.getFacing().ordinal();

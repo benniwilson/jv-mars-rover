@@ -172,6 +172,4 @@ public class InputTest extends TestCase {
         assertEquals(expectedInstruction, reusltInstruction);
         assertEquals(expectedPosition, resultPosition);
     }
-
-
 }
