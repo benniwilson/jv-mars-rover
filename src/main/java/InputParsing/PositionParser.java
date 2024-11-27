@@ -12,18 +12,18 @@ public class PositionParser {
     }
 
     public int parseXCoordinate(String positionInput){
-        if (positionInput.isEmpty()){
+        String[] positionInputArray = splitNumbers(positionInput);
+        if (positionInput.isEmpty() || positionInputArray.length == 1){
             return -1;
         }
-        String[] positionInputArray = splitNumbers(positionInput);
         return Integer.parseInt(positionInputArray[0]);
     }
 
     public int parseYCoordinate(String positionInput){
-        if(positionInput.isEmpty()){
+        String[] positionInputArray = splitNumbers(positionInput);
+        if(positionInput.isEmpty() || positionInputArray.length == 1){
             return -1;
         }
-        String[] positionInputArray = splitNumbers(positionInput);
         return Integer.parseInt(positionInputArray[1]);
     }
 
