@@ -8,13 +8,13 @@ import org.junit.jupiter.api.DisplayName;
 public class PositionParserTest extends TestCase {
 
     @Test
-    @DisplayName("Parse X coordinate returns 0 when passed no input")
+    @DisplayName("Parse X coordinate returns -1 when passed no input")
     public void test_parseXCoordinateNoInput(){
         //Arrange
         PositionParser positionParser = new PositionParser();
         //Act
         int result = positionParser.parseXCoordinate("");
-        int expected = 0;
+        int expected = -1;
         //Assert
         assertEquals(expected, result);
     }
@@ -56,13 +56,13 @@ public class PositionParserTest extends TestCase {
     }
 
     @Test
-    @DisplayName("Parse Y coordinate returns 0 when passed no input")
+    @DisplayName("Parse Y coordinate returns -1 when passed no input")
     public void test_parseYCoordinateNoInput(){
         //Arrange
         PositionParser positionParser = new PositionParser();
         //Act
         int result = positionParser.parseYCoordinate("");
-        int expected = 0;
+        int expected = -1;
         //Assert
         assertEquals(expected, result);
     }
