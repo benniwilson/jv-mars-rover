@@ -7,6 +7,10 @@ public class PlateauSize {
         this.plateauSize = plateauSize;
     }
 
+    public int[][] getPlateauSize() {
+        return plateauSize;
+    }
+
     public boolean isMovementAllowed(Position position, Instruction instruction){
         if (position == null || instruction == null){
             return false;
