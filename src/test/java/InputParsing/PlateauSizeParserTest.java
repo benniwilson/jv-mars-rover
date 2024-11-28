@@ -53,7 +53,7 @@ public class PlateauSizeParserTest extends TestCase {
         PlateauSizeParser plateauSizeParser = new PlateauSizeParser("2 2");
         //Act
         int[][] result = plateauSizeParser.parsePlateauSize();
-        int[][] expected = new int[2][2];
+        int[][] expected = new int[3][3];
         //Assert
         assertArrayEquals(result, expected);
     }
@@ -65,7 +65,7 @@ public class PlateauSizeParserTest extends TestCase {
         PlateauSizeParser plateauSizeParser = new PlateauSizeParser("10      9");
         //Act
         int[][] result = plateauSizeParser.parsePlateauSize();
-        int[][] expected = new int[10][9];
+        int[][] expected = new int[11][10];
         //Assert
         assertArrayEquals(result, expected);
     }
@@ -77,7 +77,7 @@ public class PlateauSizeParserTest extends TestCase {
         PlateauSizeParser plateauSizeParser = new PlateauSizeParser(" 6 6");
         //Act
         int[][] result = plateauSizeParser.parsePlateauSize();
-        int[][] expected = new int[6][6];
+        int[][] expected = new int[7][7];
         //Assert
         assertArrayEquals(result, expected);
     }
@@ -89,7 +89,7 @@ public class PlateauSizeParserTest extends TestCase {
         PlateauSizeParser plateauSizeParser = new PlateauSizeParser("123 67");
         //Act
         int[][] result = plateauSizeParser.parsePlateauSize();
-        int[][] expected = new int[123][67];
+        int[][] expected = new int[124][68];
         //Assert
         assertArrayEquals(result, expected);
     }
