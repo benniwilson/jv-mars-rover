@@ -1,55 +1,61 @@
 package Logic;
 
-import Input.Input;
+import Input.InputGetter;
+import InputParsing.PlateauSizeParser;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Controller {
-    PlateauSize plateauSize;
     List<Rover> rovers = new ArrayList<>();
-    int numOfRovers;
+    InputGetter inputGetter = new InputGetter();
+    PlateauSizeParser plateauSizeParser;
 
+    public void getInput(){;
+        inputGetter.getInputPlateauSize();
+        inputGetter.getNumberOfRovers();
+    }
 
-   public boolean movement(List<String> stringList){
-       Input input = new Input(stringList);
-       boolean inputValidation = input.inputValidator();
-        if(!inputValidation){
-            return false;
-        }
-        //Naming all variables needed for the program.
-        plateauSize = new PlateauSize(input.getPlateauSizeParser().parsePlateauSize());
+   public void roverMovement(){
+        getInput();
         int x;
         int y;
         Direction facing;
-        Position position;
-        numOfRovers = (stringList.size()-1)/2;
-
-        for (int i = 0; i < numOfRovers; i++){
-            x = input.getPositionParser().parseXCoordinate(input.getPositionParserStrings().get(i));
-            y = input.getPositionParser().parseYCoordinate(input.getPositionParserStrings().get(i));
-            facing = input.getPositionParser().parseDirection(input.getPositionParserStrings().get(i));
-            position = new Position(x, y, facing);
-            Rover rover = new Rover(position);
+        for (int i = 0; i < inputGetter.getNumOfRovers(); i++){
+            inputGetter.getRoverStartingPosition();
+            inputGetter.getRoverInstructions();
+            x = inputGetter.getxPosition().get(i);
+            y = inputGetter.getyPosition().get(i);
+            facing = inputGetter.getDirection().get(i);
+            Position startingPosition = new Position(x,y,facing);
+            Rover rover = new Rover(startingPosition);
             rovers.add(rover);
-
-            for (Instruction instruction : input.getInstructionParser().parseInstruction(input.getInstructionParserStrings().get(i))){
-                if (instruction == Instruction.M && plateauSize.isMovementAllowed(rover.position, instruction) &&
-                        (rover.position.getFacing() == Direction.E || rover.position.getFacing() == Direction.W)){
+            for (Instruction instruction : inputGetter.getInstruction()){
+                if (horizontalMovement(instruction, rover.position)){
                     rover.moveXPosition(instruction);
-                }else if (instruction == Instruction.M && plateauSize.isMovementAllowed(rover.position, instruction)
-                && (rover.position.getFacing() == Direction.N || rover.position.getFacing() == Direction.S)){
+                }else if (verticalMovement(instruction, rover.position)){
                     rover.moveYPosition(instruction);
-                }else if (instruction == Instruction.M && !plateauSize.isMovementAllowed(rover.position, instruction)){
-                    System.out.println("The rover is at the edge of the plateau be careful...");
-                }else if (instruction == Instruction.R || instruction == Instruction.L){
+                }else if (rotation(instruction)){
                     rover.getDirection(instruction);
+                }else if (!horizontalMovement(instruction, rover.position) || !verticalMovement(instruction, rover.position)){
+                    System.out.println("The rover is at the edge of the plateau, be careful...");
                 }
             }
             System.out.println(rover.position.getX() + " " + rover.position.getY() + " " + rover.position.getFacing());
         }
-        System.out.println("Mission completed successfully...");
-        return true;
+    }
+
+    public boolean horizontalMovement(Instruction instruction, Position position){
+        return (instruction == Instruction.M && inputGetter.getPlateauSize().isMovementAllowed(position, instruction)
+                && (position.getFacing() == Direction.E || position.getFacing() == Direction.W));
+    }
+
+    public boolean verticalMovement(Instruction instruction, Position position){
+        return (instruction == Instruction.M && inputGetter.getPlateauSize().isMovementAllowed(position, instruction)
+                && (position.getFacing() == Direction.N || position.getFacing() == Direction.S));
+    }
+
+    public boolean rotation(Instruction instruction){
+        return (instruction == Instruction.R || instruction == Instruction.L);
     }
 }
