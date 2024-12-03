@@ -16,7 +16,7 @@ public class InstructionParserTest extends TestCase {
         //Arrange
         InstructionParser instructionParser = new InstructionParser();
         //Act
-        List<Instruction> result = instructionParser.parseInstruction("");
+        Instruction result = instructionParser.parseInstruction("");
         //Assert
         assertNull(result);
     }
@@ -27,7 +27,7 @@ public class InstructionParserTest extends TestCase {
         //Arrange
         InstructionParser instructionParser = new InstructionParser();
         //Act
-        List<Instruction> result = instructionParser.parseInstruction("PPP");
+        Instruction result = instructionParser.parseInstruction("PPP");
         //Assert
         assertNull(result);
     }
@@ -38,8 +38,8 @@ public class InstructionParserTest extends TestCase {
         //Arrange
         InstructionParser instructionParser = new InstructionParser();
         //Act
-        List<Instruction> result = instructionParser.parseInstruction("m");
-        List<Instruction> expected = List.of(Instruction.M);
+        Instruction result = instructionParser.parseInstruction("m");
+        Instruction expected = Instruction.M;
         //Assert
         assertEquals(expected, result);
     }
@@ -50,9 +50,8 @@ public class InstructionParserTest extends TestCase {
         //Arrange
         InstructionParser instructionParser = new InstructionParser();
         //Act
-        List<Instruction> result = instructionParser.parseInstruction("MMLRRLMMLR");
-        List<Instruction> expected = List.of(Instruction.M,Instruction.M,Instruction.L,Instruction.R,
-                Instruction.R, Instruction.L, Instruction.M,Instruction.M,Instruction.L,Instruction.R);
+        Instruction result = instructionParser.parseInstruction("MMLRRLMMLR");
+        Instruction expected = Instruction.M;
         //Assert
         assertEquals(expected, result);
     }
@@ -63,9 +62,8 @@ public class InstructionParserTest extends TestCase {
         //Arrange
         InstructionParser instructionParser = new InstructionParser();
         //Act
-        List<Instruction> result = instructionParser.parseInstruction("mmrLUbNMLPR07%R");
-        List<Instruction> expected = List.of(Instruction.M,Instruction.M,Instruction.R,Instruction.L,
-                Instruction.M,Instruction.L,Instruction.R,Instruction.R);
+        Instruction result = instructionParser.parseInstruction("UUUrLUbNMLPR07%R");
+        Instruction expected = Instruction.R;
         //Assert
         assertEquals(expected, result);
     }
@@ -76,9 +74,8 @@ public class InstructionParserTest extends TestCase {
         //Arrange
         InstructionParser instructionParser = new InstructionParser();
         //Act
-        List<Instruction> result = instructionParser.parseInstruction("  M R H m r     L");
-        List<Instruction> expected = List.of(Instruction.M,Instruction.R,Instruction.M,Instruction.R,
-                Instruction.L);
+        Instruction result = instructionParser.parseInstruction("  H  L R H m r     L");
+        Instruction expected = Instruction.L;
         //Assert
         assertEquals(expected, result);
     }

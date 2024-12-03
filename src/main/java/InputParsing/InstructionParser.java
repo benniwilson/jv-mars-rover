@@ -7,22 +7,20 @@ import java.util.List;
 
 public class InstructionParser {
 
-    public List<Instruction> parseInstruction(String instructionInput){
-        List<Instruction> instructionList = new ArrayList<>();
+    public Instruction parseInstruction(String instructionInput){
+        Instruction instruction;
         String instructionInputValidLetters = instructionInput.replaceAll("[^rlmRLM]","").toUpperCase();
         if (instructionInputValidLetters.isEmpty()){
             return null;
-        }else {
-            for (int i = 0; i < instructionInputValidLetters.length(); i++){
-                if(instructionInputValidLetters.charAt(i) == 'R'){
-                    instructionList.add(Instruction.R);
-                }else if(instructionInputValidLetters.charAt(i) == 'L') {
-                    instructionList.add(Instruction.L);
-                }else{
-                    instructionList.add(Instruction.M);
-                }
-            }
+        }else if(instructionInputValidLetters.charAt(0) == 'R'){
+                    instruction = Instruction.R;
+        }else if(instructionInputValidLetters.charAt(0) == 'L'){
+                    instruction = Instruction.L;
+        }else if(instructionInputValidLetters.charAt(0) == 'M'){
+                    instruction = Instruction.M;
+        }else{
+            return null;
         }
-        return instructionList;
+        return instruction;
     }
 }
