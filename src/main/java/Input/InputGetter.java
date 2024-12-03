@@ -96,12 +96,12 @@ private List<Instruction> instruction;
                 System.out.println("Enter the rover starting position (e.g 2 1 N): ");
                 startingPosition = scanner.nextLine();
                 int x = positionParser.parseXCoordinate(startingPosition);
-                if (x == -1 || x > plateauSize.getPlateauSize()[0].length){
+                if (x == -1 || x > plateauSize.getPlateauSize()[0].length-1){
                     throw new IllegalArgumentException("The starting coordinates are invalid, " +
                             "please try again...");
                 }
                 int y = positionParser.parseYCoordinate(startingPosition);
-                if (y == -1 || y > plateauSize.getPlateauSize()[1].length){
+                if (y == -1 || y > plateauSize.getPlateauSize()[1].length-1){
                     throw new IllegalArgumentException("The starting coordinates are invalid, " +
                             "please try again...");
                 }
