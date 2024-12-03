@@ -1,11 +1,9 @@
 package Logic;
 
 public class PlateauSize {
-    int[][] plateauSize;
+    int[][] plateauSize = new int[6][6];
 
-    public PlateauSize(int[][] plateauSize) {
-        this.plateauSize = plateauSize;
-    }
+    public PlateauSize() {}
 
     public int[][] getPlateauSize() {
         return plateauSize;
