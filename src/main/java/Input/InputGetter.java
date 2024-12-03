@@ -74,9 +74,9 @@ private List<Instruction> instruction;
         String numberOfRovers = "";
         while (!isValid){
             try {
-                System.out.println("Enter the number of rovers: ");
+                System.out.println("Enter the number of players/rovers (max 2): ");
                 numberOfRovers = scanner.nextLine();
-                if (!numberOfRovers.matches("[0-9]+")) {
+                if (!numberOfRovers.matches("[0-9]+") || Integer.parseInt(numberOfRovers) > 2) {
                     throw new IllegalArgumentException("The number of rovers is invalid, please try again...");
                 }
                 isValid = true;
