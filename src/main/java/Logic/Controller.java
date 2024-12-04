@@ -2,6 +2,7 @@ package Logic;
 
 import Input.InputGetter;
 import InputParsing.PlateauSizeParser;
+import Output.Output;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,7 +11,6 @@ import java.util.List;
 public class Controller {
     List<Rover> rovers = new ArrayList<>();
     InputGetter inputGetter = new InputGetter();
-    PlateauSizeParser plateauSizeParser;
 
     public void getInput(){;
         inputGetter.getInputPlateauSize();
@@ -42,8 +42,10 @@ public class Controller {
                     System.out.println("The rover is at the edge of the plateau, be careful...");
                 }
             }
-            System.out.println(rover.position.getX() + " " + rover.position.getY() + " " + rover.position.getFacing());
+            int p = i+1;
+            System.out.println("ROVER " + p + ": " + rover.position.getX() + " " + rover.position.getY() + " " + rover.position.getFacing());
         }
+       Output.printEndPlateau(rovers, inputGetter.getPlateauSize());
     }
 
     public boolean horizontalMovement(Instruction instruction, Position position){
