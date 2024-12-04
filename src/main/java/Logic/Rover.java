@@ -7,6 +7,10 @@ public class Rover {
         this.position = position;
     }
 
+    public Position getPosition() {
+        return position;
+    }
+
     public void getDirection(Instruction instruction){
         int value = 0;
         if (instruction == null || position == null){
