@@ -14,13 +14,13 @@ import java.util.Scanner;
 import static java.util.Arrays.deepEquals;
 
 public class InputGetter {
-Scanner scanner = new Scanner(System.in);
-private int numOfRovers = 1;
-private PlateauSize plateauSize;
-private List<Integer> xPosition = new ArrayList<>();
-private List<Integer> yPosition = new ArrayList<>();
-private List<Direction> direction = new ArrayList<>();
-private List<Instruction> instruction;
+    Scanner scanner = new Scanner(System.in);
+    private int numOfRovers = 1;
+    private PlateauSize plateauSize;
+    private List<Integer> xPosition = new ArrayList<>();
+    private List<Integer> yPosition = new ArrayList<>();
+    private List<Direction> direction = new ArrayList<>();
+    private List<Instruction> instruction;
 
     public List<Integer> getxPosition() {
         return xPosition;
@@ -74,9 +74,9 @@ private List<Instruction> instruction;
         String numberOfRovers = "";
         while (!isValid){
             try {
-                System.out.println("Enter the number of players/rovers (max 2): ");
+                System.out.println("Enter the number of rovers: ");
                 numberOfRovers = scanner.nextLine();
-                if (!numberOfRovers.matches("[0-9]+") || Integer.parseInt(numberOfRovers) > 2) {
+                if (!numberOfRovers.matches("[0-9]+")) {
                     throw new IllegalArgumentException("The number of rovers is invalid, please try again...");
                 }
                 isValid = true;
@@ -137,4 +137,3 @@ private List<Instruction> instruction;
         }
     }
 }
-
